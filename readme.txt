@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //v1.0.2 Release notes
 
  * HelloBotv2 now logs any message written into the slack channel
@@ -17,8 +16,6 @@ It's not a useful function, but one to practice my "fs" skills :)
 
 /////////////////////////////
 
-=======
->>>>>>> 0d2b229bda85140d58d229fdb428f134e3e39509
 https://github.com/ChrisSharpeNZ/HelloBotv2.git
 
 v1.0.0
