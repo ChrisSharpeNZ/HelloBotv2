@@ -1,0 +1,28 @@
+{
+  "name": "hellobotv2",
+  "version": "1.0.0",
+  "description": "An alternative hello world bot using https://sabe.io/tutorials/learn-how-to-build-slack-bot-node-js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisSharpeNZ/HelloBotv2.git"
+  },
+  "keywords": [
+    "slack",
+    "slackbot",
+    "bot",
+    "helloworld"
+  ],
+  "author": "Chris Sharpe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisSharpeNZ/HelloBotv2/issues"
+  },
+  "homepage": "https://github.com/ChrisSharpeNZ/HelloBotv2#readme",
+  "dependencies": {
+    "slackbots": "^1.2.0"
+  }
+}
