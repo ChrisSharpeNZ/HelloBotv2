@@ -1,8 +1,12 @@
 var SlackBot = require("slackbots");
+var fs = require('fs');
 var initialchannel = "general";
 
 //privateconfig holds information which can't be stored on github
 var config = require("./config/privateconfig.js");
+var dt = require("./src/datetime.js");
+
+var logfile = './logs/Hellobotv2_' + dt.myDateTime() + '.log'
 
 
 var bot = new SlackBot({
@@ -10,13 +14,22 @@ var bot = new SlackBot({
     name: "hellobotv2"
 });
 
+//DEBUG - trying to get channels.list to work
+//var test1 = (bot.getChannels());
+//var test2 = bot.getChannel("general");
+//console.log(test1);
+//console.log(test2);
+
 //START EVENT - execute when you load hellobotv2
 bot.on("start", function() {
-    bot.postMessageToChannel(initialchannel, "hellobotv2 has started successfully");
-    console.log("hellobotv2 has started successfully");
+    //create a local logfile
+    fs.open(logfile,'w',function(err,file){
+        if (err) throw err; 
+        console.log("Local log file " + logfile + " created");
+        console.log("hellobotv2 has started successfully");
+        bot.postMessageToChannel(initialchannel, "hellobotv2 has started successfully");
+    })
 
-    //DEBUG - a testing method to test new functionality
-    testfunctionality
 });
 
 //MESSAGE EVENT - When a message is posted
@@ -26,6 +39,7 @@ bot.on("message", function(data) {
     }
 
     handleMessage(data.text);
+    
     //DEBUG - log the message data while I'm developing the response
     console.log(data)
 });
@@ -58,9 +72,4 @@ function getGreeting() {
         "¡hola!"
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
-}
-
-function testfunctionality() {
-    var cname = bot.getChannelById("CDWCBFF3Q");
-    console.log(cname);
 }
